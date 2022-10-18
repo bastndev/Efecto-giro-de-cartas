@@ -1,0 +1,71 @@
+*,*::before,*::after {box-sizing: border-box;}
+
+html,body{
+    margin: 0;
+    height: 100%;
+}
+body{
+    background-color: #1e1f23;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+/* Carta - Fondo- Color */
+.card
+{
+    position: relative;
+    width: 200px;
+    height: 250px;
+    transform-style: preserve-3d;
+}
+img{
+    position: relative;
+    width: 200px;
+    height: 250px;
+}
+
+.card .face
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+    transition: 2s ease-in-out;
+    transform: perspective(500px) rotateY(0deg);
+
+}
+/* Animation -Carta */
+.card .face.front{
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 11.5px );
+    -webkit-backdrop-filter: blur( 11.5px );
+    border-radius: 10px;
+    
+}
+.card:hover .face.front{
+    transform: perspective(500px) rotateY(180deg);
+}
+
+.card .face.back{
+    background: rgba(227, 230, 244, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(233, 235, 255, 0.37);
+    backdrop-filter: blur( 11.5px );
+    -webkit-backdrop-filter: blur( 11.5px );
+    transform: perspective(500px) rotateY(180deg);
+}
+.card:hover .face.back{
+    transform: perspective(500px) rotateY(360deg);
+}
+.card .face img{
+    text-transform: uppercase;
+    transform: perspective(900px) translateZ(20px);
+}
